@@ -1,5 +1,5 @@
 
-
+let url = ''
 (function () {
  
     /*  var config = {
@@ -41,7 +41,7 @@
  
     //  var store = {}
     chrome.cookies.getAll({
-        domain: 'jira.360es.cn'
+        domain: 'www.baidu.com'
     }, function (cookies) {
         // store.cookies = cookies
         console.log(cookies)
@@ -379,7 +379,7 @@
                     str.push(key + '=' + data[key])
                 })
                 console.log(str.join('&'))
-                fetch('https://jira.360es.cn/rest/issueNav/1/issueTable', {
+                fetch('${url}rest/issueNav/1/issueTable', {
                     method: 'POST',
                     credentials: "include",
                     mode: 'cors',
@@ -391,7 +391,7 @@
                         // 'Access-Control-Allow-Credentials':'true',
                         'X-Atlassian-Token': 'no-check',
                         'X-Requested-With': 'XMLHttpRequest',
-                        'Referer': 'https://jira.360es.cn/issues/?filter=-1&jql=issuetype%20%3D%20Task%20AND%20resolution%20%3D%20Unresolved%20AND%20assignee%20in%20(currentUser())%20order%20by%20updated%20DESC'
+                        'Referer': '${url}/?filter=-1&jql=issuetype%20%3D%20Task%20AND%20resolution%20%3D%20Unresolved%20AND%20assignee%20in%20(currentUser())%20order%20by%20updated%20DESC'
                     },
                     body: str.join('&')
                 }).then((res)=>{
@@ -455,7 +455,7 @@
                 str.push(key + '=' + data[key])
             })
             console.log(str.join('&'))
-            fetch('https://jira.360es.cn/secure/QuickCreateIssue.jspa?decorator=none', {
+            fetch('${url}secure/QuickCreateIssue.jspa?decorator=none', {
                 method: 'POST',
                 credentials: "include",
                 mode: 'cors',
@@ -467,7 +467,7 @@
                     // 'Access-Control-Allow-Credentials':'true',
                     'X-Atlassian-Token': 'no-check',
                     'X-Requested-With': 'XMLHttpRequest',
-                    'Referer': 'https://jira.360es.cn/issues/?filter=-1&jql=issuetype%20%3D%20Task%20AND%20resolution%20%3D%20Unresolved%20AND%20assignee%20in%20(currentUser())%20order%20by%20updated%20DESC'
+                    'Referer': '${url}/?filter=-1&jql=issuetype%20%3D%20Task%20AND%20resolution%20%3D%20Unresolved%20AND%20assignee%20in%20(currentUser())%20order%20by%20updated%20DESC'
                 },
                 body: str.join('&')+"&fieldsToRetain=project&fieldsToRetain=issuetype&fieldsToRetain=reporter&fieldsToRetain=components&fieldsToRetain=fixVersions&fieldsToRetain=priority&fieldsToRetain=labels&fieldsToRetain=duedate&fieldsToRetain=issuelinks&fieldsToRetain=assignee"
             }).then((res)=>{
@@ -506,7 +506,7 @@ function deleteTask(id) {
             str.push(key + '=' + data[key])
         })
         console.log(str.join('&'))
-        fetch('https://jira.360es.cn/secure/DeleteIssue.jspa', {
+        fetch('${url}secure/DeleteIssue.jspa', {
             method: 'POST',
             credentials: "include",
             mode: 'cors',
@@ -518,7 +518,7 @@ function deleteTask(id) {
                 // 'Access-Control-Allow-Credentials':'true',
                 'X-Atlassian-Token': 'no-check',
                 'X-Requested-With': 'XMLHttpRequest',
-                'Referer': 'https://jira.360es.cn/issues/?filter=-1&jql=issuetype%20%3D%20Task%20AND%20resolution%20%3D%20Unresolved%20AND%20assignee%20in%20(currentUser())%20order%20by%20updated%20DESC'
+                'Referer': '${url}/?filter=-1&jql=issuetype%20%3D%20Task%20AND%20resolution%20%3D%20Unresolved%20AND%20assignee%20in%20(currentUser())%20order%20by%20updated%20DESC'
             },
             body: str.join('&')+"&fieldsToRetain=project&fieldsToRetain=issuetype&fieldsToRetain=reporter&fieldsToRetain=components&fieldsToRetain=fixVersions&fieldsToRetain=priority&fieldsToRetain=labels&fieldsToRetain=duedate&fieldsToRetain=issuelinks&fieldsToRetain=assignee"
         }).then((res)=>{
@@ -571,7 +571,7 @@ function deleteTask(id) {
                 str.push(key + '=' + data[key])
             })
             console.log(str.join('&'))
-            fetch('https://jira.360es.cn/secure/CommentAssignIssue.jspa?atl_token=BVXE-9XUX-0N6C-O6NO%7C4125cc80b113456294badef028401a18cc45a61f%7Clin', {
+            fetch('${url}secure/CommentAssignIssue.jspa?atl_token=BVXE-9XUX-0N6C-O6NO%7C4125cc80b113456294badef028401a18cc45a61f%7Clin', {
                 method: 'POST',
                 credentials: "include",
                 mode: 'cors',
@@ -583,7 +583,7 @@ function deleteTask(id) {
                     // 'Access-Control-Allow-Credentials':'true',
                     'X-Atlassian-Token': 'no-check',
                     'X-Requested-With': 'XMLHttpRequest',
-                    'Referer': 'https://jira.360es.cn/issues/?filter=-1&jql=issuetype%20%3D%20Task%20AND%20resolution%20%3D%20Unresolved%20AND%20assignee%20in%20(currentUser())%20order%20by%20updated%20DESC'
+                    'Referer': '${url}/?filter=-1&jql=issuetype%20%3D%20Task%20AND%20resolution%20%3D%20Unresolved%20AND%20assignee%20in%20(currentUser())%20order%20by%20updated%20DESC'
                 },
                 body: str.join('&')
             }).then((res)=>{
@@ -640,7 +640,7 @@ function deleteTask(id) {
                 str.push(key + '=' + data[key])
             })
             console.log(str.join('&'))
-            fetch('https://jira.360es.cn/rest/tempo-rest/1.0/worklogs/${key}', {
+            fetch('${url}rest/tempo-rest/1.0/worklogs/${key}', {
                 method: 'POST',
                 credentials: "include",
                 mode: 'cors',
@@ -652,7 +652,7 @@ function deleteTask(id) {
                     // 'Access-Control-Allow-Credentials':'true',
                     'X-Atlassian-Token': 'no-check',
                     'X-Requested-With': 'XMLHttpRequest',
-                    'Referer': 'https://jira.360es.cn/issues/?filter=-1&jql=issuetype%20%3D%20Task%20AND%20resolution%20%3D%20Unresolved%20AND%20assignee%20in%20(currentUser())%20order%20by%20updated%20DESC'
+                    'Referer': '${url}/?filter=-1&jql=issuetype%20%3D%20Task%20AND%20resolution%20%3D%20Unresolved%20AND%20assignee%20in%20(currentUser())%20order%20by%20updated%20DESC'
                 },
                 body: str.join('&')
             }).then((res)=>{
@@ -666,7 +666,7 @@ function deleteTask(id) {
     function getTaskByIssueKey(key){
         return `
             (function(){
-                fetch("https://jira.360es.cn/secure/AjaxIssueAction!default.jspa?issueKey=${key}&decorator=none&prefetch=false&shouldUpdateCurrentProject=true&loadFields=false&_=1527042890536",{credentials: "include"})
+                fetch("${url}secure/AjaxIssueAction!default.jspa?issueKey=${key}&decorator=none&prefetch=false&shouldUpdateCurrentProject=true&loadFields=false&_=1527042890536",{credentials: "include"})
                 .then((res)=>{
                     return res.json()
                 }).then((res)=>{
