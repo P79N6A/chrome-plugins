@@ -1,0 +1,24 @@
+{
+  "name": "batch",
+  "version": "1.0.0",
+  "description": "''",
+  "main": "batch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "set path = \"D:\\projects\\chrome-plugins\\batch\" && riot app tags",
+    "riot": "riot"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "jszip": "^3.1.5",
+    "lodash": "^4.17.10",
+    "riot": "^3.10.0",
+    "riot-cli": "^5.0.0",
+    "watch": "^1.0.2"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

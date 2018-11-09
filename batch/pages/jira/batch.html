@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+
+
+    <form class="form-inline">
+        <span class="glyphicon glyphicon-refresh btn btn-default" id="list" title="刷新"></span>
+        <span id="download" class="glyphicon glyphicon-save btn btn-default" title="任务模板下载"></span>
+        <button id="add" type="button" class="btn btn-primary">添加任务</button>
+
+
+
+        <button id="done" type="button" class="btn btn-primary">完成任务</button>
+
+        <button id="delete" type="button" class="btn btn-primary">删除任务</button>
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="isCalendar"> 分配工时
+                </label>
+            </div>
+        </div>
+
+
+
+    </form>
+
+
+
+    <table id="template"  style="display:none;" cellspacing="0" style="background-color:#d7dada;">
+        <tr>
+            <td style="    background-color: #ccc;
+            font-weight: bolder;
+            text-align: center;" width="200" t="s" id="sjs-A1">任务</td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+    <br/>
+    <div>
+        <form class="form-inline">
+            <div class="form-group">
+                
+                <select id="year" class="form-control">
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                </select>
+
+            </div>
+            <div class="form-group">
+           
+                <select id="month" class="form-control">
+                    <option value="0">01</option>
+                    <option value="1">02</option>
+                    <option value="2">03</option>
+
+
+                    <option value="3">04</option>
+                    <option value="4">05</option>
+                    <option value="5">06</option>
+                    <option value="6">07</option>
+                    <option value="7">08</option>
+                    <option value="8">09</option>
+                    <option value="9">10</option>
+                    <option value="10">11</option>
+                    <option value="11">12</option>
+                </select>
+
+            </div>
+            <button id="auto"  type="button" class="btn btn-primary">自动分配</button>
+
+            <button id="commit"  type="button" class="btn btn-primary">提交工时表</button>
+        </form>
+
+
+
+
+
+    </div>
+    <div id="calendar">
+
+    </div>
+    <div id="taskList"></div>
+    <input type="file" id="file" style="display:none;" />
+</body>
+
+<link type="text/css" rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css" />
+
+<script src="../../xlsx.js"></script>
+<script src="../../sortable.js"></script>
+<script src="batch.js"></script>
+<style>
+    html,body{
+        padding:0px;
+        height:0px;
+        width:100%;
+        height:100%;
+        background-color:#f5f5f5;
+    }
+    body{
+        padding:5px;
+    }
+    #taskList {
+        user-select: none;
+    }
+
+    #taskList tbody tr {
+        cursor: pointer;
+    }
+
+    #taskList tbody tr:hover {
+        background-color: #ddd;
+    }
+
+    #taskList tbody {}
+
+    #calendar {
+        clear: both;
+        user-select: none;
+        overflow: hidden;
+    }
+
+    .calendar-item,
+    .calendar-title {
+        width: 14.2%;
+        float: left;
+        text-align: center;
+    }
+
+    .calendar-title {
+        font-weight: bolder;
+        height: 30px;
+    }
+
+    .calendar-item {
+        height: 50px;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+    }
+
+    .calendar-item:hover {
+        background-color: #ddd;
+    }
+
+    .calendar-item.rest {
+        //background-color:#ffccff;
+    }
+
+    .calendar-item.disabled {
+        // background-color:#ddd;;
+    }
+
+    .calendar-item tr td:nth-child(1),
+    .calendar-item tr td:nth-child(2),
+    .calendar-item tr td:nth-child(4) {
+        display: none;
+    }
+
+    .calendar-item tr td {
+        text-align: center;
+        display: block;
+    }
+
+    .calendar-item tr {
+        width: 100%;
+        background-color: #666;
+        padding: 2px;
+        display: block;
+        color: #fff;
+        font-weight: bolder;
+    }
+</style>
+
+</html>

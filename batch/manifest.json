@@ -1,0 +1,56 @@
+{
+    "name": "test",
+    "version": "1.0",
+    "manifest_version": 2,
+    "description": "自己造轮子撸码",
+    "minimum_chrome_version": "10.0",
+    "devtools_page": "devtools.html",
+   /*  "content_scripts": [
+        {
+          "matches": ["https://jira.360es.cn/*"],
+          "css": [],
+          "js": ["apis.js"]
+        }
+    ], */
+    "web_accessible_resources": [
+        "devtools.html",
+        "devtools.js",
+        "node_modules/riot/riot+compiler.js",
+        "app/main.tag"
+    
+      ],
+    "icons": {
+        "48": "logo.png",
+        "128": "logo.png"
+    },
+    "background": {
+        //"page": "background.html"
+        "scripts": [
+            "background.js"
+        ]
+    },
+  /*    "sandbox": {
+        "pages": ["batch.html" ],
+        "content_security_policy": "sandbox allow-scripts allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval' ;"
+    },  */
+ 
+    //"options_page": "background.html",
+    "offline_enabled":true,
+  /*   "browser_action": {
+        "default_icon": "logo.png", // optional 
+        "default_title": "Google Mail", // optional; shown in tooltip 
+        "default_popup": "popup.html" // optional 
+    }, */
+    "permissions": [
+        "cookies",
+        "notifications",
+        "bookmarks",
+        "tabs",
+        "proxy",
+        "webRequest",
+        "webRequestBlocking",
+        "*://*/*",
+    "unlimitedStorage",
+    "webNavigation"
+    ]
+}

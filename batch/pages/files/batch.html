@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+
+
+    <form class="form-inline">
+        
+        <button id="refresh"  type="button" class="btn btn-primary">刷新</button>
+
+        <button id="list"  type="button" class="btn btn-primary">打包下载</button>
+        
+
+    </form>
+
+ 
+    <div id="filelist"></div>
+    <input type="file" id="file" style="display:none;" />
+</body>
+
+<link type="text/css" rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css" />
+<script src="../../node_modules/jszip/dist/jszip.js"></script>
+
+<script src="../../xlsx.js"></script>
+<script src="../../sortable.js"></script>
+<script src="batch.js"></script>
+<style>
+    html,body{
+        padding:0px;
+        height:0px;
+        width:100%;
+        height:100%;
+        background-color:#f5f5f5;
+    }
+    body{
+        padding:5px;
+    }
+    #taskList {
+        user-select: none;
+    }
+
+    #taskList tbody tr {
+        cursor: pointer;
+    }
+
+    #taskList tbody tr:hover {
+        background-color: #ddd;
+    }
+
+    #taskList tbody {}
+
+    #calendar {
+        clear: both;
+        user-select: none;
+        overflow: hidden;
+    }
+
+    .calendar-item,
+    .calendar-title {
+        width: 14.2%;
+        float: left;
+        text-align: center;
+    }
+
+    .calendar-title {
+        font-weight: bolder;
+        height: 30px;
+    }
+
+    .calendar-item {
+        height: 50px;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+    }
+
+    .calendar-item:hover {
+        background-color: #ddd;
+    }
+
+    .calendar-item.rest {
+        //background-color:#ffccff;
+    }
+
+    .calendar-item.disabled {
+        // background-color:#ddd;;
+    }
+
+    .calendar-item tr td:nth-child(1),
+    .calendar-item tr td:nth-child(2),
+    .calendar-item tr td:nth-child(4) {
+        display: none;
+    }
+
+    .calendar-item tr td {
+        text-align: center;
+        display: block;
+    }
+
+    .calendar-item tr {
+        width: 100%;
+        background-color: #666;
+        padding: 2px;
+        display: block;
+        color: #fff;
+        font-weight: bolder;
+    }
+</style>
+
+</html>
